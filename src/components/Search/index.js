@@ -1,15 +1,6 @@
-import React, { useEffect } from 'react';
-
-import { useDispatch } from 'react-redux'
-
-import allActions from '../../store/actions';
+import React from 'react';
 
 function Search() {
-    const dispatch = useDispatch()
-  
-    useEffect(() => {
-        dispatch(allActions.countries())
-    }, [dispatch])
 
     return (
         <div>

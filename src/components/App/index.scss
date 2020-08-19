@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.flex {
+  display: flex;
+  
+  &--column {
+    flex-flow: column;
+  }
+
+  &--column-reverse {
+    flex-flow: column-reverse;
+  }
+}
+
+.align-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@for $i from 1 through 12 {
+  .large-#{$i} {
+    width: #{($i / 12) * 100 + '%'};
+  }
+
+  .space-bottom-#{$i} {
+    margin-bottom: #{$i + 'rem'};
+  }
+
+  .space-top-#{$i} {
+    margin-top: #{$i + 'rem'};
+  }
+}

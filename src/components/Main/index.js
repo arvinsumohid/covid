@@ -16,7 +16,7 @@ const Main = ({classname = '', children, ...rest}) => {
 
 
     return (
-        <main className={`holder ${classname}`} {...rest}>
+        <main className={`${classname}`} {...rest}>
             <Header />
             {children}
         </main>

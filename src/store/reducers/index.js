@@ -47,11 +47,33 @@ const country = (state = initialCountriesState, action) => {
         }
         case 'FETCH_SUMMARY_SUCCESS' : {
             const {Global, Date} = action.payload
+            const {NewConfirmed, NewDeaths, NewRecovered, TotalConfirmed, TotalDeaths, TotalRecovered} = {...Global}
+            const holder = {
+                    summary : [
+                        {
+                            heading : 'Total',
+                            data : [
+                                { title : 'Confirmed', value : TotalConfirmed },
+                                { title : 'Recovered', value : TotalRecovered },
+                                { title : 'Deaths', value : TotalDeaths },
+                            ]
+                        },
+                        { 
+                            heading : 'New',
+                            data : [
+                                { title : 'Confirmed', value : NewConfirmed },
+                                { title : 'Recovered', value : NewRecovered },
+                                { title : 'Deaths', value : NewDeaths },
+                            ]
+                        }
+                    ],
+                    Date
+                }
 
             return {
                 ...state,
                 loading: false,
-                summary: {Global, Date}
+                summary: holder
             }
         }
 
