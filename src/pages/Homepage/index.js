@@ -7,6 +7,7 @@ import Heading from "../../components/Heading"
 
 const Homepage = () => {
     const {summary, Date} = useSelector(state => state.summary)
+    const {loading} = useSelector(state => state)
 
     function itemFunc(item, index) {
         
@@ -22,9 +23,7 @@ const Homepage = () => {
         return <Row2Column key={index} title={row.title} value={row.value} />
     }
 
-    if( !summary )
-        return <div></div>
-    else
+    const success = () => {
         return (
             <Holder className="text-center holder large-10 space-top-5">
                 {summary.map((item, index) => {
@@ -32,8 +31,21 @@ const Homepage = () => {
                 })}
             </Holder>
         )
+    }
 
-    return(<div></div>)
+    const process = () => {
+        return (
+            <Holder className="text-center holder large-10 space-top-5">
+                Loading
+            </Holder>
+        )
+    }
+
+    if( !summary )
+        return process()
+    else
+        return success()
+
 }
 
 export default Homepage
