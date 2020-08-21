@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux'
 
-import Header from '../Header'
 
 import allActions from '../../store/actions';
 
@@ -17,7 +16,6 @@ const Main = ({classname = '', children, ...rest}) => {
 
     return (
         <main className={`${classname}`} {...rest}>
-            <Header />
             {children}
         </main>
     )

@@ -69,7 +69,6 @@ const country = (state = initialCountriesState, action) => {
                     ],
                     Date
                 }
-
             return {
                 ...state,
                 loading: false,

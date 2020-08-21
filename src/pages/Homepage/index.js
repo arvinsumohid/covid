@@ -1,13 +1,14 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 
+import Body from "../../components/Body"
 import Holder from "../../components/Holder"
 import Row2Column from "../../components/Row2Column"
 import Heading from "../../components/Heading"
 
 const Homepage = () => {
     const {summary, Date} = useSelector(state => state.summary)
-    const {loading} = useSelector(state => state)
+    const {loading, error} = useSelector(state => state)
 
     function itemFunc(item, index) {
         
@@ -25,24 +26,40 @@ const Homepage = () => {
 
     const success = () => {
         return (
-            <Holder className="text-center holder large-10 space-top-5">
-                {summary.map((item, index) => {
-                    return itemFunc(item, index)
-                })}
-            </Holder>
+            <Body>
+                <Holder className="text-center holder large-10 space-top-5">
+                    {summary.map((item, index) => {
+                        return itemFunc(item, index)
+                    })}
+                </Holder>
+            </Body>
         )
     }
 
     const process = () => {
         return (
-            <Holder className="text-center holder large-10 space-top-5">
-                Loading
-            </Holder>
+            <Body>
+                <Holder className="text-center holder large-10 space-top-5">
+                    Loading
+                </Holder>
+            </Body>
         )
     }
 
+    const errorFunc = () => {
+        return (
+            <Body>
+                <Holder className="text-center holder large-10 space-top-5">
+                    {error}
+                </Holder>
+            </Body>
+        )
+    }
+    
     if( !summary )
         return process()
+    else if ( error)
+        return errorFunc()
     else
         return success()
 

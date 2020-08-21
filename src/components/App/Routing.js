@@ -5,21 +5,18 @@ import {
   Route
 } from "react-router-dom";
 
-// import Login from '../../pages/Login';
-// import Register from '../../pages/Register';
-// import Account from '../../pages/Account';
-// import Homepage from '../../pages/Student/Homepage';
 import Homepage from '../../pages/Homepage'
+import Country from '../../pages/Country'
 
-const RoutingStudent = () => {
+const Routing = () => {
     return (
         <Router>
             <Switch>
+                <Route key="home" path="/:country" component={Country} />
                 <Route key="home" path="/" component={Homepage} />
-                <Route key="home" path="/:country" component={Homepage} />
             </Switch>
         </Router>
     )
 }
 
-export default RoutingStudent
+export default Routing
