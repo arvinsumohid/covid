@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import SearchResult from '../../components/SearchResult/';
-import allActions from '../../store/actions';
 
 import './index.scss'
 

@@ -7,8 +7,8 @@ import Row2Column from "../../components/Row2Column"
 import Heading from "../../components/Heading"
 
 const Homepage = () => {
-    const {summary, Date} = useSelector(state => state.summary)
-    const {loading, error} = useSelector(state => state)
+    const {summary} = useSelector(state => state.summary)
+    const {error} = useSelector(state => state)
 
     function itemFunc(item, index) {
         

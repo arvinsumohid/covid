@@ -14,12 +14,11 @@ const Country = (props) => {
     const {selectedCountry,loading, error} = useSelector(state => state)
     const [staticData, setStaticData] = useState({})
     const [graphData, setGraphData] = useState([])
-    const [graphReady, setGraphReady] = useState(false)
 
     useEffect(() => {
         dispatch(allActions.country(`${country}`))
 
-    }, [dispatch])
+    }, [dispatch, country])
 
     useEffect(() => {
         if( selectedCountry ) {
