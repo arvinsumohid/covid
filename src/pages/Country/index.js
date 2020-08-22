@@ -3,7 +3,9 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import Body from "../../components/Body"
 import Holder from "../../components/Holder"
-import Row from "../../components/Row"
+import Row2Column from "../../components/Row2Column"
+import Heading from "../../components/Heading"
+
 import LineGraph from "../../components/LineGraph"
 
 import allActions from '../../store/actions';
@@ -12,7 +14,7 @@ const Country = (props) => {
     const dispatch = useDispatch()
     const {country} = props.match.params
     const {selectedCountry,loading, error} = useSelector(state => state)
-    const [staticData, setStaticData] = useState({})
+    const [staticData, setStaticData] = useState(null)
     const [graphData, setGraphData] = useState([])
 
     useEffect(() => {
@@ -22,11 +24,6 @@ const Country = (props) => {
 
     useEffect(() => {
         if( selectedCountry ) {
-            // setStaticData({
-            //     country_name : {...selectedCountry[0]}.Country,
-
-            // })
-            console.log({...selectedCountry[0]}.Country)
         const month = ["January","February","March","April","May","June","July","August","September","October", "November", "December"]
             let graph = [
                             ['Month', 'Death', 'Recovered', 'Active']
@@ -44,6 +41,22 @@ const Country = (props) => {
                 } else if( (index+1) === countCountry) {
                     graph.push([month[cur_month], cur_data.Deaths, cur_data.Recovered, cur_data.Active])
                 }
+
+                if((index+1) === countCountry) {
+                    const petsa = new Date(statistic.Date)
+                    setStaticData({
+                        heading : [
+                                    statistic.Country,
+                                    `${month[cur_month]} ${petsa.getDate()}, ${petsa.getFullYear()}`
+                                ],
+                        row : [
+                            { title: 'Confirmed', value : statistic.Confirmed},
+                            { title: 'Active', value : statistic.Active},
+                            { title: 'Recovered', value : statistic.Recovered},
+                            { title: 'Deaths', value : statistic.Deaths},
+                        ]
+                    })
+                }
     
             })
     
@@ -52,14 +65,35 @@ const Country = (props) => {
         }
     }, [selectedCountry])
 
+    function headingFunc() {
+        if( staticData ) {
+            return (
+                    staticData.heading.map((title, index) => {
+                        return <Heading key={index} text={title} />
+                    })
+                )
+        }
+    }
 
+    function rowFunc() {
+        if( staticData ) {
+            return (
+                staticData.row.map((item, index) => {
+                    return <Row2Column key={index} title={item.title} value={item.value} />
+                })
+            )
+        }
+    }
 
     const success = () => {
         return (
             <Body>
                 <Holder className="text-center holder large-10 space-top-5">
-                    {/* <Row>{selectedCountry && selectedCountry[0].Country}</Row> */}
-                    { selectedCountry && <LineGraph data={graphData}/>}
+                    <Holder className="large-6 space-bottom-3">
+                        {headingFunc()}
+                        {rowFunc()}
+                        { selectedCountry && <LineGraph data={graphData}/> }
+                    </Holder>
                 </Holder>
             </Body>
         )

@@ -1,0 +1,13 @@
+header {
+    display: flex;
+    padding: 0 5%;
+
+    > div {
+        flex: 0 0 auto;
+
+        + div {
+            flex: 1 1 0px;
+            text-align: right;
+        }
+    }
+}

@@ -2,7 +2,6 @@ import React from 'react'
 import Chart from "react-google-charts";
 
 const LineGraph = ({data, options}) => {
-
     return (
         <Chart
             width={'100%'}

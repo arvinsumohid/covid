@@ -26,7 +26,7 @@ function Search() {
 
     return (
         <div className="search">
-            <input type="text" onChange={(evt) => inputChange(evt) } name="search" placeholder="Country"/>
+            <input type="text" onChange={(evt) => inputChange(evt) } name="search" placeholder="Country" autoComplete="off" />
             <SearchResult result={result} />
         </div>
     )

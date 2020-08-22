@@ -6,7 +6,7 @@ const countries = () => {
             type: 'FETCH_COUNTRIES_BEGIN'
         })
 
-        return fetch('https://api.covid19api.com/countries')
+        return fetch(`${process.env.REACT_APP_COVID_19_API_COUNTRIES_URL}`)
                 .then(handleErrors)
                 .then(res => res.json())
                 .then(json => {
@@ -33,7 +33,7 @@ const country = (country) => {
             type: 'FETCH_COUNTRY_BEGIN'
         })
 
-        return fetch(`https://api.covid19api.com/total/country/${country}`)
+        return fetch(`${process.env.REACT_APP_COVID_19_API_COUNTRY_URL}/${country}`)
                 .then(handleErrors)
                 .then(res => res.json())
                 .then(json => {
@@ -61,7 +61,7 @@ const countriesSummary = (country) => {
             type: 'FETCH_SUMMARY_BEGIN'
         })
 
-        return fetch('https://api.covid19api.com/summary')
+        return fetch(`${process.env.REACT_APP_COVID_19_API_SUMMARY_URL}`)
         .then(handleErrors)
         .then(res => res.json())
         .then(json => {
