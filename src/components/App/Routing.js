@@ -12,7 +12,9 @@ const Routing = () => {
     return (
         <Router>
             <Switch>
-                <Route key="home" path="/covid/:country" component={Country} />
+                <Route key="country" path="/covid/:country" component={Country} />
+                <Route key="country-2" path="/:country" component={Country} />
+                <Route key="homepage" path="/" component={Homepage} />
                 <Route key="home" path="/covid/" component={Homepage} />
             </Switch>
         </Router>
