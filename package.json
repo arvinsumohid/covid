@@ -2,6 +2,7 @@
   "name": "covid",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://api.covid19api.com/",
   "homepage": "http://arvinsumohid.github.io/covid/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
