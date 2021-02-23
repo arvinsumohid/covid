@@ -24,7 +24,7 @@ const Country = (props) => {
 
     useEffect(() => {
         if( selectedCountry ) {
-        const month = ["January","February","March","April","May","June","July","August","September","October", "November", "December"]
+        const month = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT", "NOV", "DEC"]
             let graph = [
                             ['Month', 'Death', 'Recovered', 'Active']
                         ]
@@ -89,7 +89,7 @@ const Country = (props) => {
         return (
             <Body>
                 <Holder className="text-center holder large-10 space-top-5">
-                    <Holder className="large-6 space-bottom-3">
+                    <Holder className="large-10 space-bottom-3">
                         {headingFunc()}
                         {rowFunc()}
                         { selectedCountry && <LineGraph data={graphData}/> }
