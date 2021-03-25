@@ -1,0 +1,11 @@
+
+> canvas@2.5.0 install D:\projectFolder\covid\node_modules\canvas
+> node-pre-gyp install --fallback-to-build
+
+[canvas] Success: "D:\projectFolder\covid\node_modules\canvas\build\Release\canvas.node" is installed via remote
++ canvas@2.5.0
++ ts-node@9.1.1
++ typescript@3.2.1
+added 30 packages from 26 contributors, updated 1 package and audited 2424 packages in 67.659s
+found 0 vulnerabilities
+
