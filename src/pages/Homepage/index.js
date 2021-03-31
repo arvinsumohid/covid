@@ -26,8 +26,8 @@ const Homepage = () => {
 
     const success = () => {
         return (
-            <Body className="p-6">
-                <Holder className="text-center holder large-10 space-top-5 p-6">
+            <Body>
+                <Holder className="text-center holder large-10 space-top-5">
                     {summary.map((item, index) => {
                         return itemFunc(item, index)
                     })}
@@ -39,7 +39,7 @@ const Homepage = () => {
     const process = () => {
         return (
             <Body>
-                <Holder className="text-center holder large-10 space-top-5 p-6">
+                <Holder className="text-center holder large-10 space-top-5">
                     Loading
                 </Holder>
             </Body>
@@ -49,7 +49,7 @@ const Homepage = () => {
     const errorFunc = () => {
         return (
             <Body>
-                <Holder className="text-center holder large-10 space-top-5 p-6">
+                <Holder className="text-center holder large-10 space-top-5">
                     {error}
                 </Holder>
             </Body>
